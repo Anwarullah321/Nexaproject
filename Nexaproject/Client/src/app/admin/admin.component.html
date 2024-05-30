@@ -1,0 +1,60 @@
+<!-- admin.component.html -->
+
+<div class="admin-container">
+  <div>
+     <h1>Admin Dashboard</h1>
+
+
+
+  <div>
+    
+      
+      
+      <div class="button-container">
+        <button (click)="openCreateUserDialog()">Create New User</button>
+        <input type="text" [(ngModel)]="searchEmail" (input)="filterUsersByEmail()" placeholder="Search by internal user email" 
+style="padding: 6px 12px; font-size: 14px; border-radius: 5px; border: 1px solid #ccc; margin-left: 100px;"
+/>
+        <button class="logout-button" (click)="logout()">Logout</button>
+        
+      </div>
+      
+ 
+ </div>
+ 
+     <div *ngIf="users.length > 0">
+       <h2 class="users-created-heading">Users Created by Admin</h2>
+       <ul>
+         <li *ngFor="let user of users">
+           <p>{{ user.email }}</p>
+           <p>{{ user.password }}</p>
+           <p class="user-role">{{ user.role }}</p>
+           <button class="update-button" (click)="selectUserForUpdate(user)">Update</button>
+           <button class="delete-button hover-effect" *ngIf="user._id !== undefined" (click)="deleteUser(user._id)">Delete</button>
+         </li>
+       </ul>
+     </div>
+
+
+ 
+ 
+     <!-- Update User Form -->
+     <div *ngIf="selectedUser">
+       <h2>Update User</h2>
+       <form (ngSubmit)="updateUser()">
+         <label for="email">Email:</label>
+         <input type="email" [(ngModel)]="selectedUser.email" name="email" required>
+         <br>
+         <label for="password">Password:</label>
+         <input type="password" [(ngModel)]="selectedUser.password" name="password" required>
+         
+         <br>
+         <button type="submit">Save Changes</button>
+         <button class="cancel-updatebutton hover-effect" type="button" (click)="cancelUpdate()">Cancel</button>
+       </form>
+     </div>
+  </div>
+ </div>
+ 
+ <!-- user-creation-dialog.component.html -->
+

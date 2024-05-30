@@ -1,0 +1,51 @@
+
+
+<div class="button-container">
+
+<input type="text" [(ngModel)]="searchEmail" (input)="searchFiles()" placeholder="Search by internal user email" 
+style="padding: 6px 12px; font-size: 14px; border-radius: 5px; border: 1px solid #ccc; margin-left: 100px;"
+/>
+<button class="logout-button" (click)="logout()"
+  style="margin-right: 100px;"
+  >Logout</button>
+</div>
+<!-- Display filtered files -->
+<div *ngFor="let file of filteredFiles">
+ <!-- Display file details here -->
+</div>
+
+<table class="files-table">
+  <thead>
+    <tr>
+      <th>No</th>
+      <th>Name</th>
+      <th>Requested By</th>
+      <th>Status</th>
+      <th>Actions</th> 
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let file of filteredFiles; let i = index">
+      <tr>
+        <td>{{ i +   1 }}</td>
+        <td>{{ file.fileName }}</td>
+        <td>{{ file.internalUserName }}</td>
+        <td>{{ file.status }}</td>
+        <td>
+          <div>
+            <!-- Display file details -->
+           
+            <!-- Add buttons with inline styles for spacing -->
+            <button class="button-spacing-approve" (click)="approveFile(file, 'approved')">Approve</button>
+            <button class="button-spacing-reject" (click)="rejectFile(file, 'rejected')">Reject</button>
+            <button mat-icon-button (click)="deleteFile(file)"><mat-icon>delete</mat-icon></button>
+           </div>
+          
+           
+        </td>
+      </tr>
+    </ng-container>
+  </tbody>
+</table>
+
+

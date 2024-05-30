@@ -1,0 +1,170 @@
+
+
+<div class="user-email-section">
+  <span class="email-text">{{ userEmail }}</span>
+ </div>
+<!-- Choose File Section -->
+<div class="uploaded-files-section">
+  <div class="choose-file-section" style="display: flex; justify-content: center; align-items: center; padding: 20px; background-color: #fcfcfc; border-radius: 5px; margin: 20px auto; width: 80%; max-width: 800px; transition: background-color 0.3s ease;">
+     <input type="file" id="chooseFile" class="choose-file-input" (change)="onFileSelected($event)" accept="image/*,application/pdf,application/msword" multiple style="display: none;" />
+     <label for="chooseFile" class="choose-file-label" style="padding: 10px 20px; font-size: 18px; color: rgb(255, 255, 255); background-color: #5ed453; border-radius: 5px; cursor: pointer;">Choose File</label>
+     <div class="button-container" style="display: flex; justify-content: flex-end; width: 50%;">
+      
+       <button class="logout-button" (click)="logout()" style="margin-right: 180px;">Logout</button>
+       <!-- Add more buttons here if needed -->
+     </div>
+     <div>
+      
+     </div>
+  </div>
+ </div>
+
+ 
+ <!-- <div class="choose-file-section" style = "padding: 6px 12px; transition: background-color 0.3s ease; ">
+  <input type="file" id="chooseFile" class="choose-file-input" (change)="onFileSelected($event)" accept="image/*,application/pdf,application/msword" multiple style="display: none;" />
+  <label for="chooseFile" class="choose-file-label" style="padding: 10px 20px; font-size: 14px; color: rgb(255, 255, 255); background-color: #5ed453; border-radius: 5px; cursor: pointer;">Choose File</label>
+   
+ </div> -->
+ 
+
+
+ <div class="uploaded-files-section" style="margin-top: 20px;">
+  <h2 class="section-title" style="text-align: center; font-size: 24px; color: #333;">Uploaded File</h2>
+  <ul style="width: 100%; padding: 0; list-style: none; display: flex; flex-wrap: wrap; justify-content: center;">
+       <li *ngFor="let file of uploadedFiles; let i = index" class="file-list-item" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 40%; margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; background-color: #f9f9f9; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+         {{ file.name }}
+       </li>
+  </ul>
+  <!-- Wrap the Submit Button and the Filter Search Bar in a Container -->
+<div class="submit-filter-container" style="display: flex; justify-content: center; align-items: center; margin-top: 20px; margin-left: 100px;">
+  <!-- Submit File Button -->
+
+   
+  <button (click)="onSubmitClick()" style="padding: 6px 12px; font-size: 14px; color: white; background-color: #007bff; border-radius: 5px; border: none; cursor: pointer; margin-right: 10px;">Submit File </button>
+   
+  <!-- Filter Search Bar -->
+  <input type="text" [(ngModel)]="emailFilter" (input)="filterFilesByEmail()" placeholder="Filter by external user email" style="padding: 6px 12px; font-size: 14px; border-radius: 5px; border: 1px solid #ccc;">
+ </div>
+ 
+ </div>
+ 
+
+
+ <div class="modal" [style.display]="showModal ? 'block' : 'none'">
+  <div class="modal-content" style="display: flex; flex-direction: column; align-items: center; padding: 20px; background-color: #f9f9f9; border-radius: 5px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+     
+     <!-- Fields Container -->
+     <div style="display: flex; flex-wrap: wrap; width: 100%; margin-bottom: 20px;">
+       <div style="display: flex; align-items: center; margin-right: 10px; margin-bottom: 10px;">
+         <label for="documentName" style="font-size: 16px; color: #333; margin-right: 10px;">Document Name:</label>
+         <input type="text" id="documentName" [(ngModel)]="documentName" name="documentName" placeholder="Document Name" readonly style="padding: 10px; font-size: 14px; border-radius: 5px; border: 1px solid #ccc;" />
+       </div>
+       <div style="display: flex; align-items: center; margin-bottom: 10px;">
+         <label for="externalUserName" style="font-size: 16px; color: #333; margin-right: 10px;">External User Name:</label>
+         <select id="externalUserName" [(ngModel)]="externalUserName" name="externalUserName" style="padding: 10px; font-size: 14px; border-radius: 5px; border: 1px solid #ccc;">
+           <option value="">Select External User</option> <!-- Add a default option -->
+           <option *ngFor="let user of externalUsers" [value]="user.email">{{ user.email }}</option>
+         </select>
+       </div>
+     </div>
+ 
+     <!-- Buttons Container -->
+     <div style="display: flex; justify-content: center; width: 100%;" *ngIf="showModal">
+       <button class="submit-button" (click)="submitFiles(documentName, externalUserName)" style="padding: 6px 12px; font-size: 14px; color: white; background-color: #007bff; border-radius: 5px; border: none; cursor: pointer; ">Submit</button>
+       <button class="cancel-button " (click)="cancel()" style="padding: 6px 12px; font-size: 14px; color: #333; background-color: #f8f9fa; border-radius: 5px; border: 1px solid #dee2e6; cursor: pointer;">Cancel</button>
+     </div>
+     
+  </div>
+ </div>
+
+ 
+ 
+ 
+
+<!-- Display submitted files -->
+<div class="file-list-container">
+  <h2 class="section-title">{{ allFiles.length > 1 ? 'Submitted Files' : 'Submitted File' }}</h2>
+  <table class="files-table">
+      <thead>
+        <tr>
+          <th>No</th>
+          <th>Name</th>
+          <th>Submitted To</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let file of allFiles; let i = index">
+          <tr>
+            <td>{{ i + 1 }}</td>
+            <td>{{ file.name }}</td>
+            <td>
+              <ul class="submitted-to-list">
+                <li *ngFor="let email of file.submittedToEmails">{{ email }}</li>
+              </ul>
+            </td>
+            <td>
+              <!-- Actions can be added here, such as a view button -->
+              <button class="action-button">View</button>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+  </table>
+  <!-- View All Files Button -->
+  <button class="view-all-button" (click)="viewAllFiles()">View All Files</button>
+ 
+  <!-- Display all files with delete button -->
+  <div class="view-all-files-container" *ngIf="showAllFiles">
+     <h2 class="section-title">All Files</h2>
+     <table class="files-table">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Submitted To</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let file of allFiles; let i = index">
+            <tr>
+              <td>{{ i + 1 }}</td>
+              <td>{{ file.name }}</td>
+              <td>
+                {{ file.submittedToEmails }}
+               </td>
+               
+              <td>{{ file.status }}</td>
+              <td>
+                <button class="delete-button hover-effect" (click)="deleteFile(file)">Delete</button>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+     </table>
+  </div>
+ </div>
+ 
+
+ 
+   
+
+ 
+
+
+<!-- Display all files with delete button -->
+<!-- View All Files Container -->
+
+ 
+<!-- <tr *ngFor="let file of allFiles">
+  <td>{{ file.name }}</td>
+  <td>{{ file.internalUserName }}</td>
+  <td>{{ file.status }}</td> <!-- Display the file's status -->
+  <!-- Other columns as needed -->
+ <!-- </tr> --> 
+ 
+<ng-template #noFiles>
+  <p>No files have been submitted yet.</p>
+</ng-template>

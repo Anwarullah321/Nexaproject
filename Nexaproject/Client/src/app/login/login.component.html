@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<div class="container">
+  <div class="row justify-content-center">
+      <div class="col-md-6">
+          <div class="card shadow-lg border-0 rounded-lg mt-5">
+              <div class="card-header bg-primary text-white text-center">
+                  <h3 class="font-weight-bold">Login</h3>
+              </div>
+              <div class="card-body">
+                  <form>
+                      <div class="form-group">
+                          <label for="inputEmail3">Email</label>
+                          <div class="input-group">
+                              <div class="input-group-prepend">
+                                  <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                              </div>
+                              <input type="email" class="form-control" id="inputEmail3" placeholder="Enter your email" [(ngModel)]="loginObj.email" [ngModelOptions]="{ standalone: true }">
+                          </div>
+                      </div>
+                      <div class="form-group">
+                          <label for="inputPassword3">Password</label>
+                          <div class="input-group">
+                              <div class="input-group-prepend">
+                                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                              </div>
+                              <input type="password" class="form-control" id="inputPassword3" placeholder="Enter your password" [(ngModel)]="loginObj.password" [ngModelOptions]="{ standalone: true }">
+                          </div>
+                      </div>
+                      <button (click)="onLogin()" type="submit" class="btn btn-primary btn-block">Sign in</button>
+                  </form>
+                  <div class="text-center mt-3">
+                      <a routerLink="/signup" class="btn btn-link text-muted">New User? Click to Signup!</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+

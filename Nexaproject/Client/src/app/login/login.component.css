@@ -1,0 +1,82 @@
+/* Increase specificity by using a more specific selector */
+.card .btn-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.card .btn-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Alternatively, use !important to force the style */
+.btn-link {
+    color: #007bff !important;
+    text-decoration: none !important;
+}
+
+.btn-link:hover {
+    color: #0056b3 !important;
+    text-decoration: underline !important;
+}
+body {
+    background-color: #f8f9fa;
+    font-family: 'Roboto', sans-serif;
+   
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.card {
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); /* Enhanced shadow */
+    transition: transform 0.3s ease-in-out;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+}
+
+.card:hover {
+    transform: scale(1.25);
+}
+
+.card-header {
+    
+    background-color: #007bff;
+    
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .card {
+        margin-top: 2rem;
+    }
+}
+
+.font-weight-bold{
+    font-size: 1.5rem;
+}
+

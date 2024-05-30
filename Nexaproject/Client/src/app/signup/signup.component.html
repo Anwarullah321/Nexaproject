@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="text-center">
+                    <h1>SignUp Form</h1>
+                     
+                </div>
+                <form>
+                    <div class="row mb-3">
+                      <label for="inputEmail3" class="form-label">Email</label>
+                      <div class="col-sm-10">
+                        <input type="email" class="form-control" id="inputEmail3" [(ngModel)]="signupObj.email" [ngModelOptions]="{ standalone: true }">
+                      </div>
+                    </div>
+                    <div class="row mb-3">
+                      <label for="inputPassword3" class="form-label">Password</label>
+                      <div class="col-sm-10">
+                        <input type="password" class="form-control" id="inputPassword3" [(ngModel)]="signupObj.password" [ngModelOptions]="{ standalone: true }">
+                      </div>
+                    </div>
+                    <button (click)="onSignUp()" name="submit" class="btn btn-primary">Sign Up</button>
+                    </form>
+                    <a routerLink="/login">Already Member? Click to login!</a>
+                    <h4>Create your NexaSoft account </h4>
+            </div>
+            
+        </div>
+    </div>
+</div>
+

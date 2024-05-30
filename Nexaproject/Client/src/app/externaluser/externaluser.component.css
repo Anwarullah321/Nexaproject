@@ -1,0 +1,157 @@
+/* Centered Header */
+.centered-header {
+  text-align: center;
+  font-size: 24px; /* Increase font size for better visibility */
+  font-weight: bold; /* Make the header bold */
+  margin-bottom: 20px; /* Add some space below the header */
+ }
+ 
+ /* Table Styles */
+ .files-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: Arial, sans-serif; /* Use a modern, readable font */
+ }
+ 
+ .files-table th,
+ .files-table td {
+  border: 1px solid #ddd;
+  padding: 12px 15px; /* Increase padding for better readability */
+  text-align: left; /* Align text to the left in cells */
+ }
+ 
+ .files-table th {
+  background-color: #4CAF50; /* Green header */
+  color: white;
+  text-align: center; /* Center the text in the headers */
+ }
+ 
+ .files-table tr:nth-child(even) {
+  background-color: #f2f2f2; /* Light grey for even rows */
+ }
+ 
+ .files-table tr:hover {
+  background-color: #ddd; /* Slightly darker grey on hover */
+ }
+ 
+ /* Specific Cell Styles */
+ .files-table td:nth-child(2) {
+  max-width: 150px; /* Set a fixed width for the cell */
+  white-space: nowrap; /* Prevent the text from wrapping to the next line */
+  overflow: hidden; /* Hide the overflowing text */
+  text-overflow: ellipsis; /* Add an ellipsis when the text overflows */
+ }
+ 
+ .files-table td:nth-child(4) {
+  padding-left: 2em; /* Adjust the padding as needed */
+  vertical-align: top; /* Align the content to the top of the cell */
+ }
+ 
+ /* Button Styles */
+ .button-spacing-approve{
+  align-items: center;
+  margin-right: 10px;
+  background-color: #2d9230; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 16px; /* Increase padding for better clickability */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px; /* Adjust font size as needed */
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  
+ }
+ .button-spacing-reject{
+  align-items: center;
+  margin-right: 10px;
+  background-color: #ee1111; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 16px; /* Increase padding for better clickability */
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px; /* Adjust font size as needed */
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  
+ }
+ .button-spacing-approve:hover {
+  background-color: #1c7c21; /* Darker green on hover */
+ }
+ 
+ /* Reject Button Specific Style */
+ .button-spacing-reject {
+  background-color: #f44336; /* Red */
+ }
+ 
+ .button-spacing-reject:hover {
+  background-color: #da190b; /* Darker red on hover */
+ }
+ 
+ .files-table td:nth-child(4) {
+  height: 0px; /* Adjust height as desired */
+  padding-top: 20px;
+}
+
+ 
+ .button-spacing:hover {
+  background-color: #45a049; /* Darker green on hover */
+ }
+ /* Vertically Center Content in Actions Column */
+ .button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+ }
+ 
+ .logout-button {
+  background-color: #007bff; /* Example background color */
+  color: white; /* Text color */
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 5px;
+ }
+ 
+ .logout-button:hover {
+  background-color: #0056b3; /* Example hover color */
+ }
+
+
+
+button[mat-icon-button] {
+  
+  color: rgb(0, 0, 0); /* White icon */
+  border: none; /* Remove border */
+  border-radius: 50%; /* Make it circular */
+  padding: 5px; /* Add some padding */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  margin-left: 5px;
+ 
+ }
+ 
+ button[mat-icon-button]:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+ }
+ 
+ /* Optional: Add a transition for the icon color change */
+ mat-icon {
+  transition: color 0.3s ease;
+ }
+ 
+ button[mat-icon-button]:hover mat-icon {
+  color: #ffebee; /* Lighter red icon on hover */
+ }
+ 
+
+ 
+ 

@@ -1,0 +1,16 @@
+.card{
+    margin-top: 1rem auto;
+    border: 1px solid blue;
+    width: 550px;
+    padding: 2rem;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    
+}
+.form-control{
+    margin-bottom: 1rem;
+}
+.form-label{
+    margin-bottom: 1rem;
+}

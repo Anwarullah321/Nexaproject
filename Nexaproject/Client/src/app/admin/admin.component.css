@@ -1,0 +1,147 @@
+/* admin.component.css */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+   }
+   
+   .admin-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+   }
+   
+   h1, h2 {
+    color: #333;
+   }
+   /* admin.component.css */
+
+/* Existing styles... */
+
+/* Style for the "Users Created by Admin" heading */
+h2 {
+    font-size: 24px; /* Increase font size */
+    font-weight: bold; /* Make the text bold */
+    color: #333; /* Darker text color */
+    margin-top: 20px; /* Add some space above the heading */
+    margin-bottom: 10px; /* Add some space below the heading */
+    background-color: #f4f4f4; /* Light background color */
+    padding: 10px; /* Add some padding around the text */
+    border-radius: 5px; /* Rounded corners */
+   }
+   
+   button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+   }
+   
+   button:hover {
+    background-color: #45a049;
+   }
+   
+   .delete-button {
+    background-color: #e45147;
+   }
+   .hover-effect:hover {
+    background-color: #ee2a2a; /* Red */
+    color: white; /* White text */
+   }
+
+   ul {
+    list-style-type: none;
+    padding: 0;
+   }
+   
+   li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+   }
+   
+   li:last-child {
+    border-bottom: none;
+    
+   }
+   
+   form {
+    margin-top: 20px;
+   }
+   /* admin.component.css */
+
+
+.update-button {
+    margin-right: 10px; 
+    
+   }
+   
+.cancel-updatebutton{
+    background-color: #e45147;
+    margin-left: 10px;
+   }
+   .hover-effect:hover {
+    background-color: #ee2a2a; /* Red */
+    color: white; /* White text */
+   }
+
+   input[type="email"], input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+   }
+   
+   input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+   }
+   
+   input[type="submit"]:hover {
+    background-color: #45a049;
+   }
+   
+
+
+
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+   }
+   
+   .logout-button {
+    background-color: #007bff; /* Example background color */
+    color: white; /* Text color */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+   }
+   
+   .logout-button:hover {
+    background-color: #0056b3; /* Example hover color */
+   }
+  
+
+.user-role {
+    font-size: 16px; /* Adjust font size */
+    font-weight: bold; /* Make the text bold */
+    color: #007bff; /* Change color to blue for emphasis */
+    margin-bottom: 10px; /* Add some space below the role */
+   }
+   

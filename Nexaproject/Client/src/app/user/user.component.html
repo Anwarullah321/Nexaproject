@@ -1,0 +1,31 @@
+<!-- user.component.html -->
+
+<div class="form-container">
+  <h2>Create New User</h2>
+  
+  <form [formGroup]="userForm" (ngSubmit)="createUser()" class="user-form">
+     <label class="form-label">
+       Email:
+       <input type="email" formControlName="email" class="form-input">
+     </label>
+  
+     <label class="form-label">
+       Password:   
+       <input type="password" formControlName="password" class="form-input">
+     </label>
+     
+     <label class="form-label">
+       Role:
+       <select formControlName="role" class="form-input">
+         <option value="external">External</option>
+         <option value="internal">Internal</option>
+       </select>
+     </label>
+  
+     <button type="submit" class="submit-button">
+       Create User   
+     </button>
+  
+  </form>
+ </div>
+ 
